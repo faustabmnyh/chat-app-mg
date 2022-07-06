@@ -68,6 +68,7 @@ module.exports = gql`
       email: String
       password: String
       confirmPassword: String
+      imageUrl: String
     ): User!
     sendMessage(to: String!, content: String!): Message!
     uploadImage(file: Upload!): File!
