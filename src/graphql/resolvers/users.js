@@ -21,6 +21,7 @@ const generateToken = (user) => {
       id: user.id,
       email: user.email,
       username: user.username,
+      imageUrl: user.imageUrl,
     },
     process.env.JWT_SECRET || "inirahasiagaadayangtahu",
     { expiresIn: "2h" }
