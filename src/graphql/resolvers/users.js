@@ -152,7 +152,7 @@ module.exports = {
     },
     updateUser: async (
       parent,
-      { username, email, password, confirmPassword },
+      { username, email, password, confirmPassword, imageUrl },
       { user }
     ) => {
       let isUser = await User.findById(user.id);
@@ -207,6 +207,10 @@ module.exports = {
             isUser.password = await bcrypt.hash(password, 12);
           }
 
+          if (imageUrl) {
+            isUser.imageUrl = imageUrl;
+          }
+
           // update username message in to usernmae
           await Message.updateMany(
             { to: user.username },
@@ -221,14 +225,16 @@ module.exports = {
           // update user post username
           await Post.updateMany(
             { username: user.username },
-            { $set: { username } }
+            { $set: { username, imageUrl } }
           );
+
           // update comment username and like username as well
           await Post.updateMany(
             {},
             {
               $set: {
                 "comments.$[element].username": username,
+                "comments.$[element].imageUrl": imageUrl,
                 "likes.$[element].username": username,
               },
             },

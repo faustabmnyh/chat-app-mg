@@ -50,6 +50,7 @@ module.exports = {
           sticker,
           user: user.id,
           username: user.username,
+          imageUrl: user.imageUrl,
         });
 
         const postCreated = await post.save();

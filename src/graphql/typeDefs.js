@@ -31,6 +31,7 @@ module.exports = gql`
     sticker: String
     createdAt: String!
     username: String!
+    imageUrl: String
     comments: [Comment]!
     likes: [Like]!
     commentCount: Int!
@@ -40,6 +41,7 @@ module.exports = gql`
     id: ID!
     createdAt: String!
     username: String!
+    imageUrl: String
     sticker: String
     body: String
   }

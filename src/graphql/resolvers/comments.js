@@ -25,6 +25,7 @@ module.exports = {
           body,
           sticker,
           username: user.username,
+          imageUrl: user.imageUrl,
         });
         const updatedPost = await post.save();
         return updatedPost;

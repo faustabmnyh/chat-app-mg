@@ -4,6 +4,7 @@ const commentSchema = new mongoose.Schema(
   {
     body: String,
     sticker: String,
+    imageUrl: String,
     username: {
       type: String,
       required: true,
@@ -33,6 +34,7 @@ const postSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    imageUrl: String,
     sticker: String,
     comments: [commentSchema],
     likes: [likeSchema],
